@@ -1,12 +1,12 @@
-InterNetworkX DNS updater
-==========================
+Variomedia DNS updater
+======================
 
 Shell script for updating DNS entries via Variomedia’s HTTP API (dynamic DNS). 
 See <https://dyndns.variomedia.de/>.
 
 Basically, it compares your current WAN address to a given FQDN DNS entry. If 
-they differ, it calls inwx’ XMLRPC API and updates all entries specified in its 
-config file.
+they differ, it calls Variomedia’s HTTP API and updates all entries specified in 
+its config file.
 
 Requirements
 ------------
