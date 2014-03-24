@@ -33,7 +33,7 @@ then
   echo "ERROR: could not retrieve DNS entry for ${hostname} from ns1.variomedia.de." >&2
   exit 1
 fi
-wan_ip=$(curl -sf ${site} | grep -Po '(\d+\.){3}\d+')
+wan_ip=$(curl -4sf ${site} | grep -Po '(\d+\.){3}\d+')
 if [ $? -ne 0 ]
 then
   echo "ERROR: could not retrieve current WAN address from ${site}." >&2
@@ -45,7 +45,7 @@ then
   elements=${#domains[@]}
   for (( i=0;i<$elements;i++))
   do
-    curl -sfo /dev/null -u "${username}:${password}" https://dyndns.variomedia.de/nic/update?hostname=${domains[${i}]}&myip=${wan_ip}
+    curl -4sfo /dev/null -u "${username}:${password}" https://dyndns.variomedia.de/nic/update?hostname=${domains[${i}]}&myip=${wan_ip}
   done
   retcode=$?
   if [ $retcode -ne 0 ]
