@@ -45,7 +45,7 @@ then
   elements=${#domains[@]}
   for (( i=0;i<$elements;i++))
   do
-    curl -sfo /dev/null -u "${username}:${password}" https://dyndns.variomedia.de/nic/update?hostname=${domains[${i}]}&myip=${wan_ip}
+    curl -sfo /dev/null -u "${username}:${password}" "https://dyndns.variomedia.de/nic/update?hostname=${domains[${i}]}&myip=${wan_ip}"
   done
   retcode=$?
   if [ $retcode -ne 0 ]
